@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ZeroCapital.ai — AI Survival Strategist</title>
+<meta name="description" content="Elite zero-capital digital survival strategies. AI automation audits, B2B lead generation, and execution blueprints for Indian businesses ready to scale."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink: #0a0a0a;
+  --paper: #f5f0e8;
+  --accent: #c8401a;
+  --accent2: #1a3c8f;
+  --muted: #6b6560;
+  --border: rgba(10,10,10,0.12);
+  --card: #ffffff;
+  --mono: 'DM Mono', monospace;
+  --sans: 'Syne', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s;
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  position: fixed;
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.18s, width 0.2s, height 0.2s;
+  mix-blend-mode: multiply;
+}
+
+/* Noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 4vw;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  mix-blend-mode: normal;
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-cta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1.25rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-cta:hover { background: var(--accent); }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: none; background: none; border: none; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: var(--ink); display: block; transition: all 0.3s; }
+
+/* Hero */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 4vw 5vh;
+  padding-top: 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-ticker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.hero-ticker::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero-headline {
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  animation: fadeUp 0.8s ease 0.4s both;
+  max-width: 14ch;
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: var(--accent);
+  display: block;
+}
+
+.hero-sub-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 3rem;
+  gap: 2rem;
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.hero-sub {
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  color: var(--muted);
+  max-width: 38ch;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+}
+
+.stat {
+  text-align: right;
+}
+
+.stat-num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.hero-bg-text {
+  position: absolute;
+  bottom: -2vw;
+  right: -1vw;
+  font-size: 22vw;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(10,10,10,0.06);
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+  letter-spacing: -0.05em;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeUp 1s ease 1.2s both;
+}
+
+.hero-scroll span {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+  animation: scrollPulse 2s ease infinite;
+}
+
+/* Marquee */
+.marquee-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  background: var(--ink);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-item {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  padding: 0 2.5rem;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+
+.marquee-item b { color: var(--accent); font-weight: 500; opacity: 1; }
+
+/* Sections */
+section {
+  padding: 6rem 4vw;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 60px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+
+/* What We Do */
+#services { background: var(--ink); color: var(--paper); }
+#services .section-label { color: var(--accent); }
+#services .section-label::after { background: rgba(255,255,255,0.15); }
+#services .section-title { color: var(--paper); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  margin-top: 4rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.service-card {
+  padding: 2.5rem 2rem;
+  border: none;
+  background: rgba(255,255,255,0.03);
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover { background: rgba(255,255,255,0.07); }
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: var(--accent);
+  transition: height 0.3s;
+}
+
+.service-card:hover::before { height: 100%; }
+
+.service-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.service-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.service-price {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  margin-top: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* How It Works */
+#process { background: var(--paper); }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  counter-reset: step;
+}
+
+.process-step {
+  counter-increment: step;
+  position: relative;
+  padding-top: 1rem;
+  border-top: 2px solid var(--border);
+  transition: border-color 0.3s;
+}
+
+.process-step:hover { border-color: var(--accent); }
+
+.process-step::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.process-step h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.process-step p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Results / Why Us */
+#results {
+  background: #f0ebe0;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 4rem;
+  align-items: center;
+}
+
+.results-numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+}
+
+.result-num-block {
+  background: var(--paper);
+  padding: 2.5rem 2rem;
+}
+
+.result-big {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.result-big span { color: var(--accent); }
+
+.result-desc {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+.results-text p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.results-text p strong { color: var(--ink); font-weight: 700; }
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2rem;
+}
+
+.pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  transition: all 0.2s;
+}
+
+.pill:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* Testimonials / Ethos */
+#ethos {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.ethos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.ethos-card {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 2rem;
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.ethos-card:hover { border-color: var(--accent); }
+
+.ethos-quote {
+  font-size: 2rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.ethos-text {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.ethos-who {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+}
+
+/* Contact / Form */
+#contact {
+  background: var(--paper);
+}
+
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  margin-top: 4rem;
+  align-items: start;
+}
+
+.contact-left h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.contact-left p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.contact-row strong {
+  color: var(--ink);
+  font-weight: 500;
+  min-width: 60px;
+}
+
+.contact-row a {
+  color: var(--accent2);
+  text-decoration: none;
+}
+
+.contact-row a:hover { text-decoration: underline; }
+
+.form-wrapper {
+  border: 1px solid var(--border);
+  background: var(--card);
+  overflow: hidden;
+  position: relative;
+}
+
+.form-header {
+  background: var(--ink);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-header-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.form-dots { display: flex; gap: 5px; }
+.form-dot { width: 8px; height: 8px; border-radius: 50%; }
+.form-dot.r { background: #ff5f57; }
+.form-dot.y { background: #ffbd2e; }
+.form-dot.g { background: #28c840; }
+
+.form-wrapper iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+  display: block;
+}
+
+/* Footer */
+footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 3rem 4vw 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--paper);
+}
+
+.footer-brand span { color: var(--accent); }
+
+.footer-brand p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.5rem;
+  max-width: 28ch;
+  line-height: 1.6;
+  font-family: var(--sans);
+  font-weight: 400;
+}
+
+.footer-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.footer-col h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1rem;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.4; transform: scaleY(0.5); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav { padding: 1rem 5vw; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: var(--ink);
+    z-index: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+  }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-menu a {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--paper);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--accent); }
+  .mobile-close {
+    position: absolute;
+    top: 1.5rem; right: 5vw;
+    background: none; border: none;
+    color: var(--paper);
+    font-size: 1.8rem;
+    cursor: none;
+  }
+
+  .hero-stats { display: none; }
+  .hero-sub-row { flex-direction: column; align-items: flex-start; }
+
+  .results-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-links { flex-direction: column; gap: 2rem; }
+  .footer-top { flex-direction: column; }
+
+  section { padding: 4rem 5vw; }
+
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#results">Results</a>
+  <a href="#ethos">Ethos</a>
+  <a href="#contact">Work With Us</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">Zero<span>Capital</span>.ai</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#ethos">Ethos</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Work Together ↗</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-ticker">Zero Capital. Maximum Output. Real Numbers.</div>
+  <h1 class="hero-headline">
+    AI-Powered
+    <em>Survival</em>
+    Strategy
+  </h1>
+  <div class="hero-sub-row">
+    <p class="hero-sub">We build execution blueprints for Indian businesses using AI automation — no fluff, no vague advice. Just operational systems that generate real revenue fast.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">₹2L</div>
+        <div class="stat-label">in 30 days</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">48hr</div>
+        <div class="stat-label">delivery</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0₹</div>
+        <div class="stat-label">upfront cost</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bg-text" aria-hidden="true">AI</div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">AI Automation Audits <b>—</b></span>
+    <span class="marquee-item">B2B Lead Generation <b>—</b></span>
+    <span class="marquee-item">Zero Capital Strategy <b>—</b></span>
+    <span class="marquee-item">Revenue Blueprints <b>—</b></span>
+    <span class="marquee-item">Workflow Automation <b>—</b></span>
+    <span class="marquee-item">CA Firms <b>·</b> Clinics <b>·</b> Coaching Centres <b>—</b></span>
+    <span class="marquee-item">48hr Delivery <b>—</b></span>
+    <span class="marquee-item">₹2 Lakh in 30 Days <b>—</b></span>
+    <span class="marquee-item">AI Automation Audits <b>—</b></span>
+    <span class="marquee-item">B2B Lead Generation <b>—</b></span>
+    <span class="marquee-item">Zero Capital Strategy <b>—</b></span>
+    <span class="marquee-item">Revenue Blueprints <b>—</b></span>
+    <span class="marquee-item">Workflow Automation <b>—</b></span>
+    <span class="marquee-item">CA Firms <b>·</b> Clinics <b>·</b> Coaching Centres <b>—</b></span>
+    <span class="marquee-item">48hr Delivery <b>—</b></span>
+    <span class="marquee-item">₹2 Lakh in 30 Days <b>—</b></span>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title reveal">Not consulting.<br>Execution systems.</h2>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01 — Core</div>
+      <div class="service-name">AI Automation Audit</div>
+      <div class="service-desc">We map every workflow in your business, identify what is eating staff time manually, and produce a 15-page PDF roadmap showing exactly which free tools fix each gap. Delivered in 48 hours.</div>
+      <div class="service-price">₹15,000 — ₹30,000</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02 — Growth</div>
+      <div class="service-name">B2B Lead Generation System</div>
+      <div class="service-desc">We build, qualify, and deliver a pipeline of leads for your business with AI-personalised outreach sequences. You receive verified contacts, custom email scripts, and a 30-day execution calendar.</div>
+      <div class="service-price">₹20,000 — ₹40,000 / month</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03 — Content</div>
+      <div class="service-name">SEO Content Sprint</div>
+      <div class="service-desc">10–20 AI-written, expert-reviewed SEO articles per month targeting your exact buyer keywords. Built for funded startups and established SMBs with no in-house content team.</div>
+      <div class="service-price">₹3,000 — ₹6,000 / article</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04 — Research</div>
+      <div class="service-name">Sector Intelligence Reports</div>
+      <div class="service-desc">20–30 page deep-dive reports on specific Indian sectors — for HNI investors, boutique consultants, and M&A advisory firms. AI-synthesised, analyst-reviewed, formatted for boardroom delivery.</div>
+      <div class="service-price">₹10,000 — ₹25,000 / report</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">05 — Execution</div>
+      <div class="service-name">30-Day Revenue Blueprint</div>
+      <div class="service-desc">The complete war-room plan: niche identification, offer construction, outreach scripts, daily schedule, KPI targets, and fallback pivots. Everything needed to go from ₹0 to ₹2L in 30 days.</div>
+      <div class="service-price">₹8,000 — ₹15,000</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">06 — Career</div>
+      <div class="service-name">AI-Enhanced Job Applications</div>
+      <div class="service-desc">Tailored resumes, LinkedIn overhauls, and cover letters built for NRIs and job-switchers in UAE, Canada, UK, and USA. We speak the language of international hiring managers.</div>
+      <div class="service-price">₹5,000 — ₹15,000</div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title reveal">From enquiry<br>to delivery in 72 hrs.</h2>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <h3>You fill the form</h3>
+      <p>Tell us your business type, your biggest pain point, and what you want to achieve. Takes 3 minutes.</p>
+    </div>
+    <div class="process-step reveal">
+      <h3>We scope the work</h3>
+      <p>Within 24 hours we review your submission and send a fixed-price proposal. No vague quotes. No hourly billing.</p>
+    </div>
+    <div class="process-step reveal">
+      <h3>You pay upfront</h3>
+      <p>We collect 100% via Razorpay before starting. This protects your time and ours. No half-payments, no delays.</p>
+    </div>
+    <div class="process-step reveal">
+      <h3>We execute in 48hrs</h3>
+      <p>Delivery within 48–72 hours from payment. A finished PDF, report, or system — not a meeting. Real deliverables.</p>
+    </div>
+    <div class="process-step reveal">
+      <h3>You implement</h3>
+      <p>Everything we deliver is built for action. No dependencies on us. You take it, run it, and make money with it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section id="results">
+  <div class="section-label reveal">Why This Works</div>
+  <div class="results-grid">
+    <div class="results-numbers reveal">
+      <div class="result-num-block">
+        <div class="result-big">₹2<span>L</span></div>
+        <div class="result-desc">Target in 30 days</div>
+      </div>
+      <div class="result-num-block">
+        <div class="result-big">48<span>hr</span></div>
+        <div class="result-desc">Avg delivery time</div>
+      </div>
+      <div class="result-num-block">
+        <div class="result-big">40<span>%</span></div>
+        <div class="result-desc">Call-to-close rate</div>
+      </div>
+      <div class="result-num-block">
+        <div class="result-big">0<span>₹</span></div>
+        <div class="result-desc">Tools we need you to buy</div>
+      </div>
+    </div>
+    <div class="results-text reveal">
+      <p><strong>Most "AI consultants" target tech companies.</strong> We go where nobody else goes — the CA firm in Agra, the dental clinic in Jaipur, the coaching centre in Kanpur. These owners have heard about AI, fear being left behind, and have never had anyone explain what it means for <em>their</em> specific workflow.</p>
+      <p><strong>We are the bridge.</strong> Every deliverable is produced with AI tools and delivered at a price point Indian SMBs can actually say yes to. No ₹5 lakh retainers. No 6-month engagements. No jargon. Just a PDF that answers the question: "What exactly should I automate, and how?"</p>
+      <p>Our philosophy: <strong>clarity is the product. Speed is the moat. Price is the lever.</strong></p>
+      <div class="pill-list">
+        <span class="pill">CA Firms</span>
+        <span class="pill">Dental Clinics</span>
+        <span class="pill">Coaching Centres</span>
+        <span class="pill">Logistics</span>
+        <span class="pill">Funded Startups</span>
+        <span class="pill">HNI Investors</span>
+        <span class="pill">NRI Job Seekers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ethos -->
+<section id="ethos">
+  <div class="section-label">Our Operating Rules</div>
+  <h2 class="section-title reveal">We optimise for<br>probability, not comfort.</h2>
+  <div class="ethos-grid">
+    <div class="ethos-card reveal">
+      <div class="ethos-quote">"</div>
+      <div class="ethos-text">No motivational fluff. No educational padding. Every word we produce is either an action item or data. If it doesn't move the needle, it doesn't ship.</div>
+      <div class="ethos-who">Execution Principle</div>
+    </div>
+    <div class="ethos-card reveal">
+      <div class="ethos-quote">"</div>
+      <div class="ethos-text">B2B over B2C. High-ticket over volume. Speed over perfection. International clients paying USD over everything else. These are the variables we optimise in every engagement.</div>
+      <div class="ethos-who">Revenue Philosophy</div>
+    </div>
+    <div class="ethos-card reveal">
+      <div class="ethos-quote">"</div>
+      <div class="ethos-text">We use free tools exclusively. Claude, Perplexity, Gamma, Apollo free tier, Notion, Razorpay. If we cannot build it for zero, we don't recommend it to you.</div>
+      <div class="ethos-who">Tools Doctrine</div>
+    </div>
+    <div class="ethos-card reveal">
+      <div class="ethos-quote">"</div>
+      <div class="ethos-text">We state clearly when a goal is unrealistic. We adjust numbers, explain why, and provide the closest achievable path. Honest math over exciting promises.</div>
+      <div class="ethos-who">Brutal Honesty</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="contact-wrap">
+    <div class="contact-left reveal">
+      <h2>Ready to work together or want to enquire?</h2>
+      <p>Fill the form and we will respond within 24 hours with a fixed-price proposal or an answer to your question. No sales calls unless you want one. No vague follow-ups.</p>
+      <div class="contact-details">
+        <div class="contact-row">
+          <strong>Based</strong> Agra, Uttar Pradesh, India
+        </div>
+        <div class="contact-row">
+          <strong>Serves</strong> Pan-India + NRI clients worldwide
+        </div>
+        <div class="contact-row">
+          <strong>Response</strong> Within 24 hours
+        </div>
+        <div class="contact-row">
+          <strong>Payment</strong> Razorpay · UPI · Bank Transfer
+        </div>
+        <div class="contact-row">
+          <strong>Delivery</strong> 48–72 hours from payment
+        </div>
+      </div>
+      <div style="margin-top:2.5rem; padding:1.5rem; border:1px solid var(--border); background:#fff;">
+        <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem;">What to tell us in the form</div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+          <li style="font-size:13px; color:var(--muted); padding-left:1rem; border-left:2px solid var(--accent);">Your business type and city</li>
+          <li style="font-size:13px; color:var(--muted); padding-left:1rem; border-left:2px solid var(--accent);">Your biggest workflow pain point</li>
+          <li style="font-size:13px; color:var(--muted); padding-left:1rem; border-left:2px solid var(--accent);">Which service you're interested in</li>
+          <li style="font-size:13px; color:var(--muted); padding-left:1rem; border-left:2px solid var(--accent);">Your budget range (so we don't waste your time)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-wrapper reveal">
+      <div class="form-header">
+        <div class="form-dots">
+          <div class="form-dot r"></div>
+          <div class="form-dot y"></div>
+          <div class="form-dot g"></div>
+        </div>
+        <div class="form-header-title">Enquiry / Work Together Form</div>
+        <div style="width:44px;"></div>
+      </div>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSf7Tp9ygXUtsnO9nyLAtGgYT0_Z9ettkgo-xpvcWE17T18sjw/viewform?usp=dialog&embedded=true"
+        title="Enquiry Form"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+      <noscript>
+        <div style="padding:2rem; text-align:center; font-family:var(--mono); font-size:13px; color:var(--muted);">
+          <a href="https://forms.gle/PeJx4KyAzVCaT4tb8" target="_blank" rel="noopener" style="color:var(--accent2);">Open the form in a new tab ↗</a>
+        </div>
+      </noscript>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      Zero<span>Capital</span>.ai
+      <p>AI-powered execution systems for Indian businesses that cannot afford to wait.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">AI Automation Audit</a>
+        <a href="#services">Lead Generation</a>
+        <a href="#services">SEO Sprint</a>
+        <a href="#services">Research Reports</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#process">How It Works</a>
+        <a href="#results">Why Us</a>
+        <a href="#ethos">Our Ethos</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ZeroCapital.ai — Agra, India</span>
+    <span>Built with AI. Executed by humans.</span>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = -100, my = -100, rx = -100, ry = -100;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = (mx - 5) + 'px';
+  cur.style.top = (my - 5) + 'px';
+});
+
+function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = (rx - 16) + 'px';
+  ring.style.top = (ry - 16) + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.transform = 'scale(2.5)'; ring.style.transform = 'scale(1.5)'; });
+  el.addEventListener('mouseleave', () => { cur.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('mobileClose').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.remove('open');
+});
+document.querySelectorAll('.mobile-menu a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+});
+
+// Smooth nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + e.target.id ? 'var(--accent)' : '';
+      });
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => sectionObserver.observe(s));
+</script>
+</body>
+</html>
